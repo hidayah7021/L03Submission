@@ -11,7 +11,6 @@ export default function App() {
         answer3: ''
     });
 
-    // Correct answers
     const correctAnswers = {
         answer1: 'Ducati',
         answer2: 'Yamaha',
@@ -19,31 +18,33 @@ export default function App() {
     };
 
     const styles = StyleSheet.create({
-        parent:{
-            flex: 1,
-            marginTop:50,
-            margin:20,
-            flexDirection: 'row',
-            backgroundColor:'smokegrey',
+        parent: {
+            marginTop: 50,
+            margin: 20,
+            backgroundColor: 'lightgray',
             borderColor: '#0099AA',
             borderWidth: 5,
-            justifyContent:'space-evenly',
-            alignItems: 'center'
+            justifyContent: 'space-evenly',
+            alignItems: 'center',
+            padding: 10
         },
-        child:{
-            width: 80,
-            height: 80,
+        child: {
             flexDirection: 'row',
-            borderWidth: 2,
-            textAlign:'center',
-            fontSize: 20
+            justifyContent: 'center',
+            textAlign: 'center',
+            fontSize: 20,
+            marginBottom: 20,
+        },
+        title: {
+            fontSize: 24,
+            fontWeight: 'bold',
+            marginVertical: 10
         }
-    })
+    });
 
-    // Inline Bike component
     const Bike = ({ iconName, poster, index }) => {
         return (
-            <View style={{ alignItems: 'center', margin: 10 }}>
+            <View style={{ alignItems: 'center', marginBottom: 20 }}>
                 <Image source={poster} style={{ width: 400, height: 300 }} />
                 <Icon name={iconName} size={20} color="#B23B23" />
                 <RNPickerSelect
@@ -72,8 +73,8 @@ export default function App() {
     };
 
     return (
-        <View style={{ flex: 1, padding: 20 }}>
-            <Text>Get the Bike!</Text>
+        <View style={styles.parent}>
+            <Text style={styles.title}>Get the Bike!</Text>
             <Text>Pick the right brand!</Text>
 
             <ScrollView contentContainerStyle={{ paddingBottom: 100 }}>
